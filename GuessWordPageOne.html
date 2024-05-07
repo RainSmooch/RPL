@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guess What? - Home</title>
+    <style>
+        body {
+            margin: 0; /* Menghapus margin default dari body */
+            padding: 0; /* Menghapus padding default dari body */
+            background-image: url('background keseluruhan.png');
+            background-size: cover; /* Menyesuaikan ukuran gambar dengan ukuran layar */
+            background-position: center; /* Menyimpan gambar di tengah */
+            background-repeat: no-repeat; /* Mencegah pengulangan gambar */
+            height: 100vh; /* Menetapkan tinggi body menjadi 100% dari tinggi viewport */
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            border-radius: 5px;
+            padding: 20px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Membuat 2 kolom yang setara */
+            grid-auto-rows: 100px; /* Menetapkan tinggi baris secara otomatis */
+            gap: 20px; /* Menetapkan jarak antara tombol */
+            max-width: 500px; /* Membatasi lebar maksimum kontainer */
+            margin-top: 20px; /* Menambahkan jarak antara judul dan tombol */
+            margin-bottom: 20px; /* Menambahkan jarak antara tombol dan footer */
+            margin-left: auto; /* Mengatur margin kiri agar kontainer berada di tengah */
+            margin-right: auto; /* Mengatur margin kanan agar kontainer berada di tengah */
+        }
+        .button {
+            background-color: #FF8A00;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 30px;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            cursor: pointer;
+            width: 100%; /* Tombol mengisi lebar kolom */
+            height: 100%;
+        }
+        .button:hover {
+            background-color: #ea8c21;
+        }
+        h1 {
+            color: white;
+            font-size: 100px;
+            margin-bottom: 20px; /* Menambahkan margin bawah pada h1 */
+        }
+        img {
+            padding: 10px; /* Mengurangi padding pada img */
+            width: 20%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="Guess What logo Home.png" alt="">
+    </div>
+    <div class="container">
+        <h1>Guess What?</h1>
+        <div class="button-container">
+            <button class="button">Guess the Number 1</button>
+            <button class="button">Guess the Number 2</button>
+            <button class="button">Guess the Word 1</button>
+            <button class="button">Guess the Word 2</button>
+            <button class="button">Guess the Word 3</button>
+            <button class="button">Guess the Word 4</button>
+        </div>
+    </div>
+</body>
+</html>
