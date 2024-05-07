@@ -18,17 +18,18 @@
             padding: 20px;
             margin: 0 auto;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .button-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Membuat 2 kolom yang setara */
-            grid-auto-rows: 100px; /* Menetapkan tinggi baris secara otomatis */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 20px; /* Menetapkan jarak antara tombol */
             max-width: 500px; /* Membatasi lebar maksimum kontainer */
             margin-top: 20px; /* Menambahkan jarak antara judul dan tombol */
             margin-bottom: 20px; /* Menambahkan jarak antara tombol dan footer */
-            margin-left: auto; /* Mengatur margin kiri agar kontainer berada di tengah */
-            margin-right: auto; /* Mengatur margin kanan agar kontainer berada di tengah */
         }
         .button {
             background-color: #FF8A00;
@@ -39,16 +40,11 @@
             padding: 10px 20px;
             text-transform: uppercase;
             cursor: pointer;
-            width: 100%; /* Tombol mengisi lebar kolom */
-            height: 100%;
+            width: 200px; /* Tombol mengisi lebar kolom */
+            height: 100px;
         }
         .button:hover {
             background-color: #ea8c21;
-        }
-        h1 {
-            color: white;
-            font-size: 100px;
-            margin-bottom: 20px; /* Menambahkan margin bawah pada h1 */
         }
         img {
             padding: 10px; /* Mengurangi padding pada img */
@@ -61,14 +57,11 @@
         <img src="Guess What logo Home.png" alt="">
     </div>
     <div class="container">
-        <h1>Guess What?</h1>
         <div class="button-container">
-            <button class="button">Guess the Number 1</button>
-            <button class="button">Guess the Number 2</button>
-            <button class="button">Guess the Word 1</button>
-            <button class="button">Guess the Word 2</button>
-            <button class="button">Guess the Word 3</button>
-            <button class="button">Guess the Word 4</button>
+            <button class="button">Animal</button>
+            <button class="button">Fruit</button>
+            <button class="button">Country</button>
+            <button class="button">Colour</button>
         </div>
     </div>
 </body>
