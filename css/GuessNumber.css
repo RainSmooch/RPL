@@ -1,0 +1,108 @@
+/* General styling for body */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('image/Background keseluruhan.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Logo image styling */
+img {
+    padding: 10px;
+    width: 20%;
+}
+
+/* Container styling */
+.container {
+    border-radius: 5px;
+    padding: 20px;
+    margin: auto; /* Mengatur margin secara otomatis untuk menempatkan container di tengah layar */
+    text-align: center;
+    max-width: 400px; /* Sesuaikan lebar maksimum sesuai kebutuhan */
+    margin-top: 10vh; /* Sesuaikan jarak dari atas layar */
+}
+
+/* Input styling */
+/* Input styling */
+input[type="number"] {
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px; /* Menambahkan jarak di bawah input */
+    width: 100%;
+    max-width: 800px; /* Membatasi lebar input */
+    box-sizing: border-box;
+    margin-left: auto; /* Mengatur margin kiri */
+    margin-right: auto; /* Mengatur margin kanan */
+}
+
+/* Button container styling */
+.button-container {
+    display: flex;
+    justify-content: center; /* Menempatkan konten tombol di tengah secara horizontal */
+    gap: 20px;
+    width: 100%;
+    max-width: 300px; /* Membatasi lebar container tombol */
+    margin-left: auto; /* Mengatur margin kiri */
+    margin-right: auto; /* Mengatur margin kanan */
+}
+
+
+/* Button styling */
+button[type="submit"],
+button[type="reset"] {
+    background-color: #28a745; /* Hijau untuk tombol Submit */
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 20px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    min-width: 100px; /* Mengurangi lebar tombol */
+    transition: background-color 0.3s ease;
+}
+
+button[type="reset"] {
+    background-color: #dc3545; /* Merah untuk tombol Reset */
+}
+
+.button:hover {
+    filter: brightness(1.2);
+}
+
+/* Media Query untuk layar desktop */
+@media screen and (min-width: 768px) {
+    .container {
+        width: 80%; /* Mengurangi lebar kontainer untuk desktop */
+    }
+
+    .button-container {
+        max-width: 100%; /* Menghilangkan batasan lebar container tombol */
+    }
+}
+
+/* Tombol Exit styling */
+.exit-button {
+    position: fixed; /* Mengatur posisi tombol tetap di layar */
+    bottom: 20px; /* Jarak dari bawah layar */
+    right: 20px; /* Jarak dari kanan layar */
+    background-color: #ff0019; /* Merah untuk tombol Exit */
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    z-index: 999; /* Mengatur urutan tumpukan agar tombol Exit muncul di atas konten lain */
+}
+
+.exit-button:hover {
+    filter: brightness(0.7);
+}

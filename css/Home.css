@@ -1,0 +1,44 @@
+body {
+    margin: 0; /* Menghapus margin default dari body */
+    padding: 0; /* Menghapus padding default dari body */
+    background-image: url('image/background keseluruhan.png');
+    background-size: cover; /* Menyesuaikan ukuran gambar dengan ukuran layar */
+    background-position: center; /* Menyimpan gambar di tengah */
+    background-repeat: no-repeat; /* Mencegah pengulangan gambar */
+    height: 100vh; /* Menetapkan tinggi body menjadi 100% dari tinggi viewport */
+    font-family: 'Poppins', sans-serif;
+}
+.container {
+    border-radius: 5px;
+    padding: 20px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.button {
+    background-color: #FF8A00;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 30px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    flex-grow: 1;
+    width: 500px; 
+    height: 100px;
+}
+.button:hover {
+    background-color: #ea8c21;
+}
+h1{
+    color: white;
+    font-size: 100px;
+}
+img{
+    padding: 40px;
+    width: 20%;
+}
