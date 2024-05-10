@@ -11,7 +11,7 @@ body {
 }
 
 /* Logo image styling */
-img {
+.logo {
     padding: 10px;
     width: 20%;
 }
@@ -20,43 +20,41 @@ img {
 .container {
     border-radius: 5px;
     padding: 20px;
-    margin: auto; /* Mengatur margin secara otomatis untuk menempatkan container di tengah layar */
+    margin: auto;
     text-align: center;
-    max-width: 400px; /* Sesuaikan lebar maksimum sesuai kebutuhan */
-    margin-top: 10vh; /* Sesuaikan jarak dari atas layar */
+    max-width: 400px;
+    margin-top: 10vh;
 }
 
-/* Input styling */
 /* Input styling */
 input[type="number"] {
     padding: 10px;
     font-size: 18px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    margin-bottom: 20px; /* Menambahkan jarak di bawah input */
+    margin-bottom: 20px;
     width: 100%;
-    max-width: 800px; /* Membatasi lebar input */
+    max-width: 800px;
     box-sizing: border-box;
-    margin-left: auto; /* Mengatur margin kiri */
-    margin-right: auto; /* Mengatur margin kanan */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Button container styling */
 .button-container {
     display: flex;
-    justify-content: center; /* Menempatkan konten tombol di tengah secara horizontal */
+    justify-content: center;
     gap: 20px;
     width: 100%;
-    max-width: 300px; /* Membatasi lebar container tombol */
-    margin-left: auto; /* Mengatur margin kiri */
-    margin-right: auto; /* Mengatur margin kanan */
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
 }
-
 
 /* Button styling */
 button[type="submit"],
 button[type="reset"] {
-    background-color: #28a745; /* Hijau untuk tombol Submit */
+    background-color: #28a745;
     border: none;
     border-radius: 5px;
     color: #fff;
@@ -64,12 +62,12 @@ button[type="reset"] {
     padding: 10px 20px;
     text-transform: uppercase;
     cursor: pointer;
-    min-width: 100px; /* Mengurangi lebar tombol */
+    min-width: 100px;
     transition: background-color 0.3s ease;
 }
 
 button[type="reset"] {
-    background-color: #dc3545; /* Merah untuk tombol Reset */
+    background-color: #dc3545;
 }
 
 .button:hover {
@@ -79,20 +77,20 @@ button[type="reset"] {
 /* Media Query untuk layar desktop */
 @media screen and (min-width: 768px) {
     .container {
-        width: 80%; /* Mengurangi lebar kontainer untuk desktop */
+        width: 80%;
     }
 
     .button-container {
-        max-width: 100%; /* Menghilangkan batasan lebar container tombol */
+        max-width: 100%;
     }
 }
 
 /* Tombol Exit styling */
 .exit-button {
-    position: fixed; /* Mengatur posisi tombol tetap di layar */
-    bottom: 20px; /* Jarak dari bawah layar */
-    right: 20px; /* Jarak dari kanan layar */
-    background-color: #ff0019; /* Merah untuk tombol Exit */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #dc3545;
     border: none;
     border-radius: 5px;
     color: #fff;
@@ -100,9 +98,93 @@ button[type="reset"] {
     padding: 10px 20px;
     text-transform: uppercase;
     cursor: pointer;
-    z-index: 999; /* Mengatur urutan tumpukan agar tombol Exit muncul di atas konten lain */
+    z-index: 999;
 }
 
 .exit-button:hover {
-    filter: brightness(0.7);
+    filter: brightness(1.2);
+}
+
+/* Ruang untuk Tanda Kesalahan styling */
+.error-space {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    z-index: 999;
+}
+
+.error-image {
+    width: 30px;
+    height: auto;
+    margin-right: 5px;
+}
+
+/* Tambahkan CSS untuk keterangan sisa tebakan */
+.guesses-left {
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+/* Tambahkan CSS untuk keterangan angka yang perlu ditebak */
+.target-number-text {
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: block; /* Tampilkan keterangan angka yang perlu ditebak */
+}
+
+/* Tambahkan CSS untuk keterangan "lower" atau "higher" */
+.guess-status {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Penampilan Skor styling */
+.score-display {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    font-size: 16px;
+    z-index: 999;
+}
+
+/* Tambahkan CSS untuk keterangan sisa tebakan */
+.guesses-left {
+    font-size: 16px;
+    margin-left: auto; /* Pindahkan ke tengah */
+    margin-right: auto; /* Pindahkan ke tengah */
+    display: block;
+}
+
+/* Tambahkan CSS untuk keterangan angka yang perlu ditebak */
+.target-number-text {
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: block; /* Tampilkan keterangan angka yang perlu ditebak */
+}
+
+/* Tambahkan CSS untuk keterangan "lower" atau "higher" */
+.guess-status {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Tombol Exit styling */
+.exit-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #dc3545;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.exit-button:hover {
+    filter: brightness(1.2);
 }
