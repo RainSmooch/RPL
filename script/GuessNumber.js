@@ -1,97 +1,86 @@
-// Mendapatkan elemen-elemen yang diperlukan dari HTML
-const inputElement = document.querySelector('input[type="number"]');
-const submitButton = document.querySelector('button[type="submit"]');
-const resetButton = document.querySelector('button[type="reset"]');
-const errorSpace = document.querySelector('.error-space');
-const scoreDisplay = document.querySelector('.score-display');
-const scoreValue = document.querySelector('.score-value');
-const hintButton = document.createElement('button'); // Membuat tombol hint
-hintButton.textContent = 'Hint'; // Mengatur teks pada tombol hint
+// Generate random number between 1 and 100
+var randomNumber = Math.floor(Math.random() * 100) + 1;
 
-// Mendefinisikan variabel-variabel global
-let targetNumber;
-let guessesLeft = 5; // Batas tebakan
+// Initialize score and guesses left
+var score = 0;
+var guessesLeft = 5; // Jumlah tebakan maksimum
 
-// Fungsi untuk memeriksa tebakan pengguna
-function checkGuess(guess) {
-    if (guess === targetNumber) {
-        alert('Congratulations! You guessed the correct number!');
-        generateNewTargetNumber(); // Menghasilkan angka baru untuk ditebak
-    } else {
-        guessesLeft--;
-        if (guessesLeft === 0) {
-            gameOver();
-        } else {
-            let message = guess < targetNumber ? 'higher' : 'lower';
-            displayError(`The number you need to guess is ${message}. ${guessesLeft} guesses left.`);
-        }
-    }   
-}
+// Mendapatkan elemen tebakan dan tombol submit
+var guessInput = document.querySelector('input[type="number"]');
+var submitButton = document.querySelector('button[type="submit"]');
 
-// Fungsi untuk menangani kondisi akhir permainan
-function gameOver() {
-    errorSpace.innerHTML = '<h1>Game Over</h1>';
-    submitButton.disabled = true; // Menonaktifkan tombol submit
-    inputElement.disabled = true; // Menonaktifkan input
-    hintButton.disabled = true; // Menonaktifkan tombol hint
-}
+// Mendapatkan elemen-elemen skor dan tebakan tersisa
+var scoreElement = document.getElementById("score-value");
+var guessesLeftElement = document.getElementById("guesses-left-value");
 
-// Fungsi untuk menghasilkan angka acak
-function generateRandomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-// Fungsi untuk menampilkan pesan error
-function displayError(message) {
-    const errorMessage = document.createElement('p');
-    errorMessage.textContent = message;
-    errorSpace.innerHTML = ''; // Menghapus pesan error sebelumnya
-    errorSpace.appendChild(errorMessage);
-}
-
-// Fungsi untuk menghasilkan angka baru untuk ditebak
-function generateNewTargetNumber() {
-    targetNumber = generateRandomNumber(1, 100); // Menghasilkan angka acak antara 1 dan 100 (bisa disesuaikan)
-    guessesLeft = 5; // Mengatur ulang jumlah tebakan yang tersisa
-    scoreDisplay.textContent = `Guesses Left: ${guessesLeft}`; // Memperbarui tampilan tebakan yang tersisa
-}
-
-
-// Memanggil fungsi untuk menghasilkan angka pertama kali
-generateNewTargetNumber();
-
-// Event listener untuk tombol Submit
+// Event listener untuk tombol submit
 submitButton.addEventListener('click', function() {
-    const userGuess = parseInt(inputElement.value);
-    if (!isNaN(userGuess)) {
-        checkGuess(userGuess);
+    // Mendapatkan tebakan pengguna
+    var userGuess = parseInt(guessInput.value);
+
+    // Memeriksa apakah tebakan valid
+    if (userGuess >= 1 && userGuess <= 100) {
+        // Mengurangi jumlah tebakan tersisa
+        guessesLeft--;
+        // Memeriksa apakah tebakan benar
+        if (userGuess === randomNumber) {
+            // Menambah skor
+            score += 100;
+            // Memperbarui tampilan skor
+            scoreElement.textContent = score;
+            // Menampilkan pesan tebakan benar
+            alert("Congratulations! You guessed the correct number.");
+            // Menghasilkan angka acak baru
+            randomNumber = Math.floor(Math.random() * 100) + 1;
+            // Memperbarui jumlah tebakan tersisa
+            guessesLeft = 5;
+        } else {
+            // Menampilkan pesan apakah tebakan terlalu besar atau terlalu kecil
+            var message = userGuess < randomNumber ? "Too small!" : "Too big!";
+            // Memeriksa apakah tebakan tersisa telah habis
+            if (guessesLeft === 0) {
+                // Menampilkan pesan tebakan tersisa habis
+                alert("Sorry, you have run out of guesses. The correct number was: " + randomNumber);
+                // Mengarahkan ke halaman utama
+                window.location.href = "homepage.html";
+            } else {
+                // Menampilkan pesan tebakan salah dan jumlah tebakan tersisa
+                alert("Wrong guess! " + message + " You have " + guessesLeft + " guesses left.");
+            }
+        }
+        // Memperbarui tampilan tebakan tersisa
+        guessesLeftElement.textContent = guessesLeft;
     } else {
-        alert('Please enter a valid number.');
+        // Menampilkan pesan jika tebakan tidak valid
+        alert("Please enter a number between 1 and 100.");
     }
+
+    // Mengosongkan input tebakan
+    guessInput.value = '';
 });
 
-// Event listener untuk tombol Reset
-resetButton.addEventListener('click', function() {
-    inputElement.value = ''; // Mengosongkan input
-    errorSpace.innerHTML = ''; // Menghapus pesan error
-});
+// Mendapatkan elemen tombol hint
+var hintButton = document.querySelector('.hint-button');
 
-// Menambahkan tombol hint ke dalam container
-const container = document.querySelector('.container');
-container.appendChild(hintButton);
-
-// Event listener untuk tombol Hint
+// Event listener untuk tombol hint
 hintButton.addEventListener('click', function() {
-    let rangeHint = '';
-    if (targetNumber >= 1 && targetNumber <= 10) {
-        rangeHint = 'between 1 and 10';
-    } else if (targetNumber >= 11 && targetNumber <= 30) {
-        rangeHint = 'between 11 and 30';
-    } else if (targetNumber >= 30 && targetNumber <= 70) {
-        rangeHint = 'between 31 and 70';
-    } else if (targetNumber >= 71 && targetNumber <= 100) {
-        rangeHint = 'between 71 and 100';
-    }
-    let message = targetNumber % 2 === 0 ? 'even' : 'odd'; // Memberikan petunjuk tentang angka
-    alert(`The target number is ${rangeHint} and it's ${message}.`);
+    // Mendapatkan rentang clue
+    var minClue = randomNumber - 7;
+    var maxClue = randomNumber + 7;
+
+    // Memastikan rentang clue tidak melebihi batas 1-100
+    minClue = Math.max(minClue, 1);
+    maxClue = Math.min(maxClue, 100);
+
+    // Menampilkan petunjuk
+    alert("The number is between " + minClue + " and " + maxClue + ".");
+});
+
+// Menampilkan petunjuk secara otomatis saat permainan dimulai
+window.addEventListener('load', function() {
+    // Menentukan apakah angka ganjil atau genap
+    var evenOrOdd = randomNumber % 2 === 0 ? 'even' : 'odd';
+
+    // Menampilkan petunjuk
+    alert("The number is between 1 and 100, and it's " + evenOrOdd + ".");
 });

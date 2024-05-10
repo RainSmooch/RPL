@@ -18,6 +18,7 @@ body {
 
 /* Container styling */
 .container {
+    font-family: 'Poppins', sans-serif;
     border-radius: 5px;
     padding: 20px;
     margin: auto;
@@ -53,7 +54,9 @@ input[type="number"] {
 
 /* Button styling */
 button[type="submit"],
-button[type="reset"] {
+button[type="reset"],
+.exit-button,
+.hint-button {
     background-color: #28a745;
     border: none;
     border-radius: 5px;
@@ -70,19 +73,15 @@ button[type="reset"] {
     background-color: #dc3545;
 }
 
-.button:hover {
-    filter: brightness(1.2);
+.hint-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgb(83, 83, 240);
 }
 
-/* Media Query untuk layar desktop */
-@media screen and (min-width: 768px) {
-    .container {
-        width: 80%;
-    }
-
-    .button-container {
-        max-width: 100%;
-    }
+.hint-button:hover {
+    filter: brightness(1.2);
 }
 
 /* Tombol Exit styling */
@@ -105,86 +104,27 @@ button[type="reset"] {
     filter: brightness(1.2);
 }
 
-/* Ruang untuk Tanda Kesalahan styling */
-.error-space {
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    z-index: 999;
-}
-
-.error-image {
-    width: 30px;
-    height: auto;
-    margin-right: 5px;
-}
-
-/* Tambahkan CSS untuk keterangan sisa tebakan */
-.guesses-left {
-    font-size: 16px;
-    margin-left: 10px;
-}
-
-/* Tambahkan CSS untuk keterangan angka yang perlu ditebak */
-.target-number-text {
-    font-size: 16px;
-    margin-bottom: 10px;
-    display: block; /* Tampilkan keterangan angka yang perlu ditebak */
-}
-
-/* Tambahkan CSS untuk keterangan "lower" atau "higher" */
-.guess-status {
-    font-size: 16px;
-    margin-top: 10px;
-}
-
-/* Penampilan Skor styling */
-.score-display {
+/* Score styling */
+.score {
     position: fixed;
     bottom: 20px;
     left: 20px;
     color: #fff;
-    font-size: 16px;
+    font-size: 30px;
+    cursor: default;
     z-index: 999;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Tambahkan CSS untuk keterangan sisa tebakan */
+/* Guesses Left styling */
 .guesses-left {
-    font-size: 16px;
-    margin-left: auto; /* Pindahkan ke tengah */
-    margin-right: auto; /* Pindahkan ke tengah */
-    display: block;
-}
-
-/* Tambahkan CSS untuk keterangan angka yang perlu ditebak */
-.target-number-text {
-    font-size: 16px;
-    margin-bottom: 10px;
-    display: block; /* Tampilkan keterangan angka yang perlu ditebak */
-}
-
-/* Tambahkan CSS untuk keterangan "lower" atau "higher" */
-.guess-status {
-    font-size: 16px;
-    margin-top: 10px;
-}
-
-/* Tombol Exit styling */
-.exit-button {
     position: fixed;
     bottom: 20px;
-    right: 20px;
-    background-color: #dc3545;
-    border: none;
-    border-radius: 5px;
+    left: calc(50% - 50px); /* Pusat horizontal */
     color: #fff;
     font-size: 16px;
-    padding: 10px 20px;
+    font-weight: bold;
     text-transform: uppercase;
-    cursor: pointer;
+    cursor: default;
     z-index: 999;
-}
-
-.exit-button:hover {
-    filter: brightness(1.2);
 }
