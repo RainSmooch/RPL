@@ -67,13 +67,14 @@ hintButton.addEventListener('click', function() {
     // Mendapatkan rentang clue
     var minClue = randomNumber - 7;
     var maxClue = randomNumber + 7;
+    var evenOrOdd = randomNumber % 2 === 0 ? 'even' : 'odd';
 
     // Memastikan rentang clue tidak melebihi batas 1-100
     minClue = Math.max(minClue, 1);
     maxClue = Math.min(maxClue, 100);
 
     // Menampilkan petunjuk
-    alert("The number is between " + minClue + " and " + maxClue + ".");
+    alert("The number is between " + minClue + " - " + maxClue + ", and it's " +evenOrOdd + ".");
 });
 
 // Menampilkan petunjuk secara otomatis saat permainan dimulai
@@ -84,3 +85,8 @@ window.addEventListener('load', function() {
     // Menampilkan petunjuk
     alert("The number is between 1 and 100, and it's " + evenOrOdd + ".");
 });
+
+function exit() {
+    // Mengarahkan ke halaman lain
+    window.location.href = "HomePage.html";
+}

@@ -114,11 +114,13 @@ button[type="reset"] {
     cursor: default;
     z-index: 999;
     font-family: 'Poppins', sans-serif;
+    font-weight: bold;
 }
 
 /* Guesses Left styling */
 .guesses-left {
     position: fixed;
+    font-family: 'Poppins', sans-serif;
     bottom: 20px;
     left: calc(50% - 50px); /* Pusat horizontal */
     color: #fff;
