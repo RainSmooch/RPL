@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guess What? - Welcome</title>
-</head>
-<body>
     <style>
         body {
             margin: 0; /* Menghapus margin default dari body */
@@ -15,7 +13,20 @@
             background-position: center; /* Menyimpan gambar di tengah */
             background-repeat: no-repeat; /* Mencegah pengulangan gambar */
             height: 100vh; /* Menetapkan tinggi body menjadi 100% dari tinggi viewport */
+            transition: opacity 0.5s ease-in; /* Efek transisi dengan durasi 0.5 detik dan kurva percepatan ease-in */
+            opacity: 1; /* Nilai opasitas awal */
         }
-      </style>
+    </style>
+</head>
+<body>
+    <script>
+        // Menunggu 3 detik sebelum melakukan pengalihan halaman
+        setTimeout(function() {
+            document.body.style.opacity = 0; // Mengurangi opasitas body untuk efek fade-out saat berpindah halaman
+            setTimeout(function() {
+                window.location.href = 'homepage.html'; // Mengarahkan ke halaman homepage.html
+            }, 500); // Delay 0.5 detik untuk memberikan waktu transisi
+        }, 3000); // 3000 milidetik = 3 detik
+    </script>
 </body>
 </html>
